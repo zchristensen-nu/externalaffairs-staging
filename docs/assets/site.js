@@ -34,3 +34,52 @@ document.addEventListener('keydown', (event) => {
   if (event.key !== 'Escape') return;
   for (const b of [...open]) { setOpen(b, document.getElementById(b.getAttribute('aria-controls')), false); b.focus(); }
 });
+
+// Finder: chips filter the cards (AND across facets, OR within one); counts and the empty state follow.
+for (const panel of document.querySelectorAll('[data-finder]')) {
+  const scope = panel.closest('section');
+  const items = [...scope.querySelectorAll('[data-finder-items] > li')];
+  const count = scope.querySelector('[data-finder-count]');
+  const empty = scope.querySelector('[data-finder-empty]');
+  const more = scope.querySelector('[data-finder-more]');
+  const page = more ? Number(more.dataset.page) : Infinity;
+  let limit = page;
+  const apply = () => {
+    const on = {};
+    for (const c of panel.querySelectorAll('.nu-chip[aria-pressed="true"]')) (on[c.dataset.filter] ||= []).push(c.dataset.value);
+    let shown = 0;
+    for (const li of items) {
+      const terms = JSON.parse(li.dataset.terms);
+      const ok = Object.entries(on).every(([k, vals]) => vals.some((v) => (terms[k] || []).includes(v)));
+      shown += ok;
+      li.hidden = !ok || shown > limit;
+    }
+    if (more) more.hidden = shown <= limit;
+    count.textContent = `${shown} of ${items.length} ${count.dataset.noun || 'results'}`;
+    empty.hidden = shown > 0;
+  };
+  panel.addEventListener('click', (event) => {
+    const chip = event.target.closest('.nu-chip');
+    if (!chip) return;
+    chip.setAttribute('aria-pressed', String(chip.getAttribute('aria-pressed') !== 'true'));
+    limit = page;
+    apply();
+  });
+  more?.addEventListener('click', () => { limit += page; apply(); });
+  apply();
+  panel.addEventListener('reset', () => {
+    limit = page;
+    for (const c of panel.querySelectorAll('.nu-chip')) c.setAttribute('aria-pressed', 'false');
+    setTimeout(apply);
+  });
+}
+
+// Staging forms never submit: show the notice instead.
+for (const form of document.querySelectorAll('[data-staging-form]')) {
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const sent = form.querySelector('[data-staging-sent]');
+    sent.hidden = false;
+    sent.scrollIntoView({ block: 'center' });
+  });
+}

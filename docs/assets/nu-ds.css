@@ -127,6 +127,7 @@
   --fw-heading:200;
   --fw-title:300;
   --fw-text:300;
+  --mark-filter:grayscale(1);
 }
 @media (prefers-color-scheme:dark){
   :root:not([data-mode]){
@@ -164,6 +165,7 @@
     --fw-heading:200;
     --fw-title:300;
     --fw-text:300;
+    --mark-filter:grayscale(1) invert(1);
   }
 }
 [data-mode="dark"]{
@@ -201,6 +203,7 @@
   --fw-heading:200;
   --fw-title:300;
   --fw-text:300;
+  --mark-filter:grayscale(1) invert(1);
 }
 [data-mode]{color:var(--on-surface)}
 
@@ -756,7 +759,8 @@ li:not(:last-child) > .nu-file-link{border-bottom:0}
   transition:color var(--dur-fast) var(--ease-out),background-color var(--dur-fast) var(--ease-out)}
 .nu-logo-tile__mark{display:block;width:auto;height:auto;max-width:80%;max-height:var(--space-7);object-fit:contain}
 svg.nu-logo-tile__mark{height:var(--space-7);color:currentColor}
-img.nu-logo-tile__mark{filter:grayscale(1);opacity:.8;transition:filter var(--dur-fast) var(--ease-out),opacity var(--dur-fast) var(--ease-out)}
+/* Raster marks go one-colour through a mode token: greyscale on Canvas, greyscale and inverted on Night, so dark logos stay legible. */
+img.nu-logo-tile__mark{filter:var(--mark-filter);opacity:.8;transition:filter var(--dur-fast) var(--ease-out),opacity var(--dur-fast) var(--ease-out)}
 .nu-logo-tile__name{max-width:16ch;font-size:var(--fs-lead);font-weight:var(--fw-regular);line-height:var(--lh-title);letter-spacing:var(--tracking-title);text-align:center;text-wrap:balance}
 .nu-logo-tile .nu-icon--sm{position:absolute;top:var(--space-3);right:var(--space-3);color:var(--on-surface-muted);opacity:0;transition:opacity var(--dur-fast) var(--ease-out)}
 a.nu-logo-tile:hover{color:var(--on-surface);background:var(--surface-raised)}
