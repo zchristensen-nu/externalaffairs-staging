@@ -1612,7 +1612,8 @@ a.nu-site-identity:hover .nu-site-identity__name,a.nu-site-identity__name:hover{
 /* ---- components/organisms/featured-person.css ---- */
 /* FeaturedPerson: one person given a band of their own (www C-18 featured-leader bands, T5 leader rows).
    Featured: a square-cornered 4:5 portrait, the name at h1 size (h2 in the outline), their title as meta under it, a short bio and one ArrowLink.
-   Row: the leadership index form. Portrait to one side, name, title, office, a sentence and two pills; rows alternate sides and part on hairlines. */
+   Row: the leadership index form. Portrait on the left, top-aligned, then name, title, office, a sentence and two pills; rows stack uniformly
+   and part on hairlines, as a list should (--reverse mirrors one row where a page needs it). */
 .nu-featured-person{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--space-6);align-items:end;min-width:0}
 .nu-featured-person__media{display:block;overflow:hidden;background:var(--surface-sunken)}
 .nu-featured-person__body{display:grid;gap:var(--space-5);justify-items:start;align-content:end;min-width:0}
@@ -1640,23 +1641,19 @@ a.nu-site-identity:hover .nu-site-identity__name,a.nu-site-identity__name:hover{
 .nu-featured-person--row .nu-featured-person__about>.nu-text{max-width:52ch}
 .nu-featured-person--row .nu-featured-person__placeholder{aspect-ratio:1;font-size:var(--fs-h3)}
 @media (min-width:720px){
-  .nu-featured-person--row{grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--layout-gutter);align-items:center;padding-block:var(--space-8)}
+  .nu-featured-person--row{grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--layout-gutter);align-items:start;padding-block:var(--space-8)}
   .nu-featured-person--row .nu-featured-person__media{grid-column:1 / span 4;grid-row:1}
   .nu-featured-person--row .nu-featured-person__body{display:grid;grid-column:6 / span 7;gap:var(--space-5);padding-bottom:0}
   .nu-featured-person--row .nu-featured-person__name,.nu-featured-person--row .nu-featured-person__about{grid-column:auto}
   .nu-featured-person--row .nu-featured-person__placeholder{aspect-ratio:4/5;font-size:var(--fs-display)}
-  /* Every second row mirrors: the portrait moves to the right edge, the text to the left. */
-  .nu-featured-person--row:nth-child(even) .nu-featured-person__media,
+  /* --reverse mirrors a row: the portrait moves to the right edge, the text to the left. */
   .nu-featured-person--row.nu-featured-person--reverse .nu-featured-person__media{grid-column:9 / span 4}
-  .nu-featured-person--row:nth-child(even) .nu-featured-person__body,
   .nu-featured-person--row.nu-featured-person--reverse .nu-featured-person__body{grid-column:1 / span 7;grid-row:1}
 }
 @media (min-width:1200px){
   .nu-featured-person--row .nu-featured-person__media{grid-column:1 / span 3}
   .nu-featured-person--row .nu-featured-person__body{grid-column:5 / span 6}
-  .nu-featured-person--row:nth-child(even) .nu-featured-person__media,
   .nu-featured-person--row.nu-featured-person--reverse .nu-featured-person__media{grid-column:10 / span 3}
-  .nu-featured-person--row:nth-child(even) .nu-featured-person__body,
   .nu-featured-person--row.nu-featured-person--reverse .nu-featured-person__body{grid-column:2 / span 6}
 }
 /* The title steps back from the name: second-ink, small. */
@@ -2441,12 +2438,12 @@ a.nu-site-identity:hover .nu-site-identity__name,a.nu-site-identity__name:hover{
 @media (min-width:720px){
   .nu-profile-header__contact{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:var(--space-6)}
 }
-/* From 960px the portrait takes 4 of 12 columns and the text column stretches to its height. */
+/* From 960px the portrait takes 4 of 12 columns; the text starts on column 5, the system's reading edge, so the name lines up with the biography below. */
 @media (min-width:960px){
   .nu-profile-header{grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--layout-gutter)}
   .nu-profile-header > *{grid-column:1 / span 8}
   .nu-profile-header__media{grid-column:1 / span 4;width:100%;align-self:start}
-  .nu-profile-header__media + .nu-profile-header__body{grid-column:6 / -1;align-self:stretch;display:flex;flex-direction:column}
+  .nu-profile-header__media + .nu-profile-header__body{grid-column:5 / -1;align-self:stretch;display:flex;flex-direction:column}
   .nu-profile-header__media + .nu-profile-header__body > .nu-profile-header__intro{flex:1 0 auto}
 }
 
@@ -2662,7 +2659,7 @@ a.nu-site-identity:hover .nu-site-identity__name,a.nu-site-identity__name:hover{
 
 /* ---- components/organisms/section-header.css ---- */
 /* SectionHeader: the heading that opens a band, its lead, and one onward ArrowLink. Stacked (heading over lead) or split
-   (heading in five columns, lead and link in seven, on a shared foot line). No eyebrow: the heading carries the section.
+   (heading in five columns, lead and link in seven, the heading's first line on the lead's first baseline). No eyebrow: the heading carries the section.
    Ruled adds 22a's chapter hairline above. Sits inside a band's content width; it owns no outer padding. */
 .nu-section-header{display:grid;justify-items:start;gap:var(--space-5);min-width:0;margin:0}
 .nu-section-header>.nu-heading{max-width:22ch}
@@ -2672,9 +2669,9 @@ a.nu-site-identity:hover .nu-site-identity__name,a.nu-site-identity__name:hover{
 .nu-section-header--ruled{padding-top:var(--space-6);border-top:var(--border-hair) solid var(--line)}
 
 @media (min-width:960px){
-  .nu-section-header--split{grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--layout-gutter);align-items:end}
+  .nu-section-header--split{grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--layout-gutter);align-items:first baseline}
   .nu-section-header--split>.nu-heading{grid-column:1 / span 5;max-width:none}
-  .nu-section-header--split .nu-section-header__body{grid-column:7 / -1;padding-bottom:var(--space-1)}
+  .nu-section-header--split .nu-section-header__body{grid-column:7 / -1}
   .nu-section-header--split .nu-section-header__body .nu-arrow-link{margin-top:calc(var(--space-2) * -1)}
 }
 
@@ -3147,7 +3144,7 @@ a.nu-site-identity:hover .nu-site-identity__name,a.nu-site-identity__name:hover{
 /* LinkRows each bring a top rule; the list closes on one. */
 .nu-profile__rows{display:grid;border-bottom:var(--border-hair) solid var(--line)}
 .nu-profile__band{padding:var(--space-9) var(--layout-edge) 0}
-.nu-profile__band:last-of-type{padding-bottom:var(--space-9)}
+.nu-profile__band:last-of-type,.nu-profile>.nu-profile__body:last-child{padding-bottom:var(--space-9)}
 
 @media (min-width:960px){
   .nu-profile__body{grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--layout-gutter);align-items:start}
