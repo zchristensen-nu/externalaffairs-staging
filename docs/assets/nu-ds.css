@@ -705,7 +705,8 @@ li:not(:last-child) > .nu-file-link{border-bottom:0}
 .nu-key-value--run-in dd{color:var(--on-surface-2)}
 
 /* ---- components/molecules/link-row.css ---- */
-/* LinkRow: a full-width hairline row that is one link. Title on the left; description, an optional key line (Director) and the arrow cue on the right.
+/* LinkRow: a full-width hairline row that is one link. Title in columns 1–4; description, an optional key line (Director) and the arrow cue from
+   column 5, the system's reading edge, so a stack of rows shares its text edge with the SectionHeader above it.
    The title's link stretches over the row, so the whole row is the target and the title is its accessible name. */
 .nu-link-row{position:relative;display:grid;grid-template-columns:minmax(0,1fr);gap:var(--space-3) var(--space-7);padding-block:var(--space-5);border-top:var(--border-hair) solid var(--line)}
 .nu-link-row:last-child{border-bottom:var(--border-hair) solid var(--line)}
@@ -727,7 +728,9 @@ li:not(:last-child) > .nu-file-link{border-bottom:0}
 .nu-link-row:hover .nu-link-row__cue .nu-icon{translate:var(--space-1) 0}
 .nu-link-row:hover .nu-arrow-link--external.nu-link-row__cue .nu-icon{translate:calc(var(--space-1) * .5) calc(var(--space-1) * -.5)}
 @media (min-width:720px){
-  .nu-link-row{grid-template-columns:minmax(0,5fr) minmax(0,7fr);padding-block:var(--space-6)}
+  .nu-link-row{grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--layout-gutter);padding-block:var(--space-6)}
+  .nu-link-row__title{grid-column:1 / span 4}
+  .nu-link-row__body{grid-column:5 / -1}
 }
 
 /* ---- components/molecules/list-toolbar.css ---- */
@@ -2659,7 +2662,7 @@ a.nu-site-identity:hover .nu-site-identity__name,a.nu-site-identity__name:hover{
 
 /* ---- components/organisms/section-header.css ---- */
 /* SectionHeader: the heading that opens a band, its lead, and one onward ArrowLink. Stacked (heading over lead) or split
-   (heading in five columns, lead and link in seven, the heading's first line on the lead's first baseline). No eyebrow: the heading carries the section.
+   (heading in columns 1–4, lead and link from column 5, the system's reading edge, so the lead shares its edge with the LinkRows, Accordions and lists under it; the heading's first line sits on the lead's first baseline). No eyebrow: the heading carries the section.
    Ruled adds 22a's chapter hairline above. Sits inside a band's content width; it owns no outer padding. */
 .nu-section-header{display:grid;justify-items:start;gap:var(--space-5);min-width:0;margin:0}
 .nu-section-header>.nu-heading{max-width:22ch}
@@ -2670,8 +2673,8 @@ a.nu-site-identity:hover .nu-site-identity__name,a.nu-site-identity__name:hover{
 
 @media (min-width:960px){
   .nu-section-header--split{grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--layout-gutter);align-items:first baseline}
-  .nu-section-header--split>.nu-heading{grid-column:1 / span 5;max-width:none}
-  .nu-section-header--split .nu-section-header__body{grid-column:7 / -1}
+  .nu-section-header--split>.nu-heading{grid-column:1 / span 4;max-width:none}
+  .nu-section-header--split .nu-section-header__body{grid-column:5 / -1}
   .nu-section-header--split .nu-section-header__body .nu-arrow-link{margin-top:calc(var(--space-2) * -1)}
 }
 
