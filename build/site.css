@@ -1,0 +1,53 @@
+/* External Affairs staging: page glue only. Every component is the design system's (nu-ds.css); this file places them on the page,
+   with tokens for every value (design-system/tokens). */
+body{background:var(--surface);color:var(--on-surface)}
+.ea-skip{position:absolute;top:var(--space-2);left:var(--space-2);z-index:var(--z-toast);translate:0 calc(-100% - var(--space-4))}
+.ea-skip:focus{translate:0 0}
+.ea-staging{padding:var(--space-2) var(--layout-edge);font-size:var(--fs-small);line-height:var(--lh-title);color:var(--on-surface-2);background:var(--surface-sunken);border-bottom:var(--border-hair) solid var(--line)}
+
+/* The header floats over the home hero; elsewhere it sits on the page. */
+.ea-top{position:relative}
+.ea-top>.nu-header-stack:not(.nu-header-stack--over-media){position:sticky;top:0}
+/* Over film the copy clears the strip and the bar (48 + 72px). */
+.ea-top--over .nu-hero-page__copy{padding-top:calc(var(--space-7) + var(--layout-header) + var(--space-8))}
+.ea-home-hero .nu-heading--h1{max-width:22ch}
+
+/* Bands: the page's vertical rhythm. */
+.ea-band{padding:var(--space-9) var(--layout-edge)}
+.ea-band--tight{padding-block:var(--space-7)}
+.ea-band--first{padding-top:var(--space-7)}
+/* MediaText is a band itself (it owns the layout edge); these only set its rhythm on these pages. */
+.ea-tight{padding-block:var(--space-7)}
+.ea-tight:first-of-type{padding-top:var(--space-9)}
+.ea-after-list{border-top:var(--border-hair) solid var(--line)}
+.ea-about{padding-block:var(--space-9)}
+.ea-band--sunken{background:var(--surface-sunken)}
+.ea-hero-title{padding:var(--space-8) var(--layout-edge) 0}
+.ea-rows{display:grid;margin-top:var(--space-7);border-top:var(--border-hair) solid var(--line)}
+.ea-tabs{display:flex;flex-wrap:wrap;gap:var(--space-2);margin-top:var(--space-5)}
+.ea-tabs .nu-chip{text-decoration:none}
+
+/* Contact: the collage sits beside the page title from 960px; departments run full width below. */
+.ea-contact__blocks{display:grid;gap:var(--space-7)}
+.ea-contact-inline,.ea-contact-stack{display:grid;gap:var(--space-3);margin-block:var(--space-4)}
+.ea-hero-figure{margin:var(--space-6) 0 0;max-width:calc(var(--space-10) * 3)}
+@media (min-width:960px){
+  .ea-hero-title--figure{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--layout-gutter);align-items:end}
+  .ea-hero-title--figure .nu-hero-title__main{grid-column:1 / span 7}
+  .ea-hero-title--figure .ea-hero-figure{grid-column:9 / -1;margin:0;max-width:none}
+  .ea-hero-title--figure .nu-hero-title__rule{grid-column:1 / -1}
+}
+.ea-404{max-width:calc(var(--layout-prose) + var(--layout-edge) * 2)}
+.ea-404 .nu-text--lead{margin-top:var(--space-4)}
+
+/* Explore Northeastern opens the MobileMenu sheet over the page; the unit menu is a small list under its button. */
+.ea-sheet .nu-mobile-menu{position:fixed;inset:0;z-index:var(--z-modal)}
+.ea-unit-menu{position:relative}
+.ea-unit-menu__list{inset-inline:auto 0}
+html:has(.nu-mobile-menu:not([hidden])){overflow:hidden}
+
+/* Team/Leadership switch: links styled as Chips; the current page takes the Chip's selected state. */
+.ea-tabs .nu-chip[aria-current]{color:var(--on-action);background:var(--action);border-color:var(--action)}
+/* 54 people: five across on wide screens (224px minimum card), two on phones. */
+.nu-card-grid--people .nu-card-grid__items{grid-template-columns:repeat(auto-fill,minmax(min(100%,calc(var(--space-10) * 1.75)),1fr))}
+@media (max-width:719px){.nu-card-grid--people .nu-card-grid__items{grid-template-columns:repeat(2,minmax(0,1fr))}}

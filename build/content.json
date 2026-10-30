@@ -1,0 +1,511 @@
+{
+ "home": {
+  "h1": "We advance the strategic interests of the university by promoting its ideas, people, and unique strengths.",
+  "about": "We serve as the university’s hub for media and public relations, government affairs, city and community engagement, and marketing.",
+  "highlights": [
+   {
+    "title": "An award-winning campaign",
+    "source": "Protect the Pack",
+    "img": "Campaign_Thmb.jpg",
+    "url": "https://www.case.org/awards/circle-excellence/2021/covid-19-response-marketing-campaign-protect-pack"
+   },
+   {
+    "title": "Placing our experts in premier media outlets",
+    "source": "The New York Times",
+    "img": "neu_m0475g87m_Vespignani.jpeg",
+    "url": "https://www.nytimes.com/2020/03/13/science/coronavirus-social-networks-data.html"
+   },
+   {
+    "title": "All the latest throughout Northeastern",
+    "source": "Northeastern Global News",
+    "img": "Screen-Shot-2023-01-13-at-4.12.25-PM.jpg",
+    "url": "https://news.northeastern.edu/"
+   }
+  ]
+ },
+ "expertise": {
+  "lead": "Our talented team brings a range of skills and experience to the table in setting the agenda and standards for elevating the university’s reputation and brand. Our approach is collaborative and strategic with the goal of positioning Northeastern as the world leader in experiential learning and an engine for global impact.",
+  "areas": [
+   {
+    "id": "city-and-community-engagement",
+    "name": "City and community engagement",
+    "short": "community engagement",
+    "img": "CCE-Hero.jpg",
+    "alt": "Volunteers in matching T-shirts and caps planting a tree",
+    "summary": "The Office of City and Community Engagement serves as a bridge between Northeastern University and the surrounding communities of its Boston campus.",
+    "body": [
+     "The <a class=\"nu-link\" href=\"https://communityengagement.northeastern.edu/\">Office of City and Community Engagement</a> serves as a bridge between Northeastern University and the surrounding communities of its Boston campus by fostering collaborative relationships and partnerships that connect, educate, and engage people and organizations throughout our network. At the heart of our collaborative work are our shared values in promoting equity and justice in all that we do."
+    ],
+    "link": [
+     "Office of City and Community Engagement",
+     "https://communityengagement.northeastern.edu/"
+    ]
+   },
+   {
+    "id": "communications",
+    "name": "Communications",
+    "short": "communications",
+    "img": "news@northeastern.jpg",
+    "alt": "The Northeastern Global News newsroom",
+    "summary": "We handle all media inquiries and public relations for the university, with a strong track record of getting the Northeastern story told by the top media outlets.",
+    "body": [
+     "We handle all media inquiries and public relations for the university, with a strong track record of getting the Northeastern story told by the top media outlets. We also run Northeastern’s digital newsroom, which publishes <a class=\"nu-link\" href=\"https://news.northeastern.edu/\">Northeastern Global News</a>, the university’s official news source with a team of journalists dedicated to covering the many ways our faculty, students, and alumni are driving change around the world."
+    ],
+    "link": [
+     "Northeastern Global News",
+     "https://news.northeastern.edu/"
+    ]
+   },
+   {
+    "id": "government-relations",
+    "name": "Government relations",
+    "short": "government relations",
+    "img": "101623_AS_EXP_Grand_Opening_167.jpeg",
+    "alt": "A speaker at the podium in front of the Northeastern seal",
+    "summary": "We focus on advancing the university’s research agenda and on shaping policy that affects our students, faculty, and staff.",
+    "body": [
+     "We focus on advancing the university’s research agenda and on <a class=\"nu-link\" href=\"../public-policies/\">shaping policy</a> that affects our students, faculty, and staff. We advocate for federal research funding, promote our faculty’s expertise among members of Congress and our nation’s funding agencies, facilitate new global research partnerships, and serve as Northeastern’s official liaison on policy issues."
+    ],
+    "link": [
+     "Public policy briefs",
+     "public-policies/"
+    ]
+   }
+  ]
+ },
+ "policy": {
+  "lead": "We shape public policies relevant to higher education and the Northeastern community—from student aid to research to national security.",
+  "intro": "Our policy briefs summarize key research findings and highlight the practical implications for public policy. Here are a few of our recent recommendations and studies.",
+  "briefs": [
+   {
+    "title": "Federal Work-Study flexibility proposal",
+    "desc": "The case for adding co-op to current work-study options · 117 KB",
+    "url": "https://externalaffairs.northeastern.edu/wp-content/uploads/Federal-Work-Study-Policy-Brief.pdf"
+   },
+   {
+    "title": "Experiential education and lifelong learning solutions",
+    "desc": "Why Northeastern’s extensive partnership model matters for learners · 805 KB",
+    "url": "https://externalaffairs.northeastern.edu/wp-content/uploads/Lifelong-Learning-Policy-Brief.pdf"
+   },
+   {
+    "title": "Optimism and anxiety: a Northeastern–Gallup policy brief",
+    "desc": "A Gallup/Northeastern survey on attitudes toward AI, its implications for the economy, and higher education’s role in empowering lifelong learners to develop new skills and adapt · 20 MB",
+    "url": "https://externalaffairs.northeastern.edu/wp-content/uploads/Optimism-Anxiety-Northeastern-Gallup-Policy-Brief.pdf"
+   }
+  ]
+ },
+ "contact": {
+  "lead": "The university’s excellence is enhanced by presenting ourselves to the world as one Northeastern. Our team is committed to all efforts that help elevate the Northeastern brand and advance its research agenda. We encourage you to contact us with your inquiry. Please choose from the departments below so we can respond to your inquiry promptly.",
+  "depts": [
+   {
+    "id": "main",
+    "name": "External Affairs",
+    "desc": "For general inquiries, please contact our main office.",
+    "address": true,
+    "tel": "617.373.5718"
+   },
+   {
+    "id": "cce",
+    "name": "City and Community Engagement",
+    "desc": "For general inquiries regarding partnerships, events, and volunteer opportunities.",
+    "tel": "617.373.7666",
+    "email": "communityengagement@northeastern.edu"
+   },
+   {
+    "id": "comms",
+    "name": "Communications",
+    "desc": "For inquiries regarding media, public relations, news, and policies.",
+    "tel": "617.373.5471",
+    "email": "media@northeastern.edu"
+   },
+   {
+    "id": "marketing",
+    "name": "Marketing",
+    "desc": "For inquiries regarding brand experience, guidelines, and campaigns.",
+    "tel": "617.373.2151",
+    "email": "marketing@northeastern.edu"
+   },
+   {
+    "id": "gr",
+    "name": "Government Relations",
+    "desc": "For inquiries regarding research initiatives, partnerships, and our global network.",
+    "tel": "617.373.8528",
+    "email": "a.robbins@northeastern.edu"
+   }
+  ]
+ },
+ "team": [
+  [
+   "Xristopher Anderton",
+   "Digital Solutions Architect",
+   "xristopher-andertonn.jpg"
+  ],
+  [
+   "Michael Armini",
+   "Senior Vice President for External Affairs",
+   "Armini-450-x-450.jpeg"
+  ],
+  [
+   "Elizabeth Bolaji",
+   "Digital Engagement Producer",
+   "Elizabeth-Bolaji_600.jpg"
+  ],
+  [
+   "Belle Brody",
+   "Senior Media Relations Specialist",
+   "012324_AS_Isabella_Brody_01.jpg"
+  ],
+  [
+   "Maddy Brogan",
+   "State Relations Manager",
+   "Maddy_Brogan_600.jpg"
+  ],
+  [
+   "Marin Carroll",
+   "Full Stack Developer",
+   "marin-carroll.jpg"
+  ],
+  [
+   "Zach Christensen",
+   "Creative Technologist",
+   "061526_AS_-Zach_Christensen_001.jpg"
+  ],
+  [
+   "Jack Cline",
+   "Vice President for Federal Relations",
+   "cline.jpg"
+  ],
+  [
+   "Neely Coe",
+   "Senior Video & Multimedia Producer",
+   "033126_AS_Neely_Coe_003.jpg"
+  ],
+  [
+   "Cesareo Contreras",
+   "News Reporter",
+   "Cesareo_Contreras-600.jpg"
+  ],
+  [
+   "Jorge Dias",
+   "Community Engagement & Off-Campus Student Liaison",
+   "Jorge_Dias600.jpg"
+  ],
+  [
+   "Elizabeth Enright",
+   "Communications & Community Engagement Manager",
+   "Elizabeth_Enright600.jpg"
+  ],
+  [
+   "Michael Ferrari",
+   "Associate Vice President for External Affairs",
+   "Ferrair_Michael.jpg"
+  ],
+  [
+   "Ed Gavaghan",
+   "Media Relations Manager",
+   "ed-gavaghan.jpg"
+  ],
+  [
+   "Rachel Gouhin",
+   "Senior Project Manager, Communications",
+   "rachel-gouhin.jpg"
+  ],
+  [
+   "Efrain Hernandez Jr.",
+   "Managing Editor, Northeastern Global News",
+   "101326_AS_Efrain_Hernandez_004.jpg"
+  ],
+  [
+   "Cynthia Hibbert",
+   "News Reporter",
+   "cynthia-hibbert.jpg"
+  ],
+  [
+   "Anna Huang",
+   "Special Assistant and Project Manager",
+   "Anna_Huang_600x600.jpg"
+  ],
+  [
+   "Diane Hubbard",
+   "Associate Director, Operations and Finance",
+   "Diane_Hubbard.jpg"
+  ],
+  [
+   "Chimel Idiokitas",
+   "Assistant Vice President for City & Community Affairs",
+   "Chimel_Idiokitas600.jpg"
+  ],
+  [
+   "David Isberg",
+   "Assistant Vice President for City & Community Engagement",
+   "David_Isberg600.jpg"
+  ],
+  [
+   "Maedot Kassa",
+   "Senior Media Relations Specialist",
+   "Maedot_Kassa_600x600.jpg"
+  ],
+  [
+   "Jackie Loring",
+   "Senior Media Relations Specialist",
+   "IMG_3092.jpg"
+  ],
+  [
+   "Natalie Matthews",
+   "Executive Assistant",
+   "010625_AS_Natalie_Matthews_600x600.jpg"
+  ],
+  [
+   "Rich McKay",
+   "News Reporter",
+   "Rich_McKay_007.jpg"
+  ],
+  [
+   "Thara Messeroux",
+   "Front End & UX/UI Developer",
+   "Thara_Messeroux.jpg"
+  ],
+  [
+   "Matthew Modoono",
+   "Director of Photography",
+   "Matthew_Modoono_001.jpg"
+  ],
+  [
+   "Hannah Morse",
+   "News Reporter",
+   "Hannah_Morse_009.jpg"
+  ],
+  [
+   "Cyrus Moulton",
+   "News Reporter",
+   "Cyrus_Moulton_001.jpg"
+  ],
+  [
+   "Renata Nyul",
+   "Vice President for Communications",
+   "nyul.jpg"
+  ],
+  [
+   "Caitlin O'Donnell",
+   "Director of Executive & Strategic Initiatives",
+   "odonnell.jpg"
+  ],
+  [
+   "Francis Oywech",
+   "Associate Director, Media Operations",
+   "Francis_Oywech_600x600.jpg"
+  ],
+  [
+   "Victoria Partika",
+   "Social Media Specialist, Oakland Campus",
+   "victoria-partika.jpg"
+  ],
+  [
+   "Glenn Pike",
+   "Senior Digital Media Producer",
+   "Glenn_Pike_001.jpg"
+  ],
+  [
+   "Katya Poltorak",
+   "Science Reporter",
+   "Katya_Poltorak_001.jpg"
+  ],
+  [
+   "Jesse Poon",
+   "Director of Federal Relations",
+   "Jesse_Poon_600px.jpg"
+  ],
+  [
+   "Joseph Regan, PhD",
+   "City Engagement & Operations Manager",
+   "Joe-Regan600.jpg"
+  ],
+  [
+   "Abigail Robbins",
+   "Assistant Director of Federal Relations",
+   "122024_AS_Abigail_Robbins_600.jpg"
+  ],
+  [
+   "Peter Rubinstein",
+   "News Reporter, Oakland Campus",
+   "Peter_Rubinstein_005-1.jpg"
+  ],
+  [
+   "Brandon Silva",
+   "Media Systems Specialist",
+   "brandon-silva.jpg"
+  ],
+  [
+   "Stephanie Sim",
+   "Director Digital Engagement",
+   "stephanie_simA600.jpg"
+  ],
+  [
+   "Ann M. Simmons",
+   "Executive Editor Northeastern Global News",
+   "Ann_Simmons_A.600.jpg"
+  ],
+  [
+   "Denis Skarep",
+   "Brand Studio Manager",
+   "Denis-Skarep_square-600.jpg"
+  ],
+  [
+   "Taijai Slaughter",
+   "Video Producer",
+   "031125_AS_Taijai_Slaughter_003.jpg"
+  ],
+  [
+   "Cameron Sleeper",
+   "Senior Social Media Video Producer",
+   "060425_AS_Cam_Sleeper_600.jpg"
+  ],
+  [
+   "Court Smith",
+   "Web Developer II",
+   "court-smith.jpg"
+  ],
+  [
+   "Tanner Stening",
+   "Assistant Editor, News",
+   "Tanner600x600.jpg"
+  ],
+  [
+   "Alyssa Stone",
+   "Staff Photographer",
+   "MicrosoftTeams-image-132.jpg"
+  ],
+  [
+   "John Tobin",
+   "Vice President, City & Community Engagement",
+   "Tobin_600x600.jpg"
+  ],
+  [
+   "Monée Vance",
+   "Community Relations & Programs Manager",
+   "Monee_Vance_600.jpg"
+  ],
+  [
+   "Rachel Vogel",
+   "Social Media Specialist",
+   "Rachel-Vogel_600x600.jpg"
+  ],
+  [
+   "Jay Whitehead",
+   "Social Media Specialist, London Campus",
+   "Jay_Whitehead_033-1.jpg"
+  ],
+  [
+   "Alex Zelenchuck",
+   "Senior Web Application Developer",
+   "Alex-Zelenchuck-600.jpg"
+  ],
+  [
+   "Renee Zhang",
+   "Illustrator/Graphic Designer",
+   "Renee-Zhang.jpg"
+  ]
+ ],
+ "leaders": [
+  {
+   "name": "Michael Armini",
+   "title": "Senior Vice President for External Affairs",
+   "bio": [
+    "As Senior Vice President for External Affairs, Michael Armini leads Northeastern’s central marketing and communications teams, as well as city, state, and federal government relations. Under his leadership, third-party assessments of the university’s brand have increased dramatically, and the university’s engagement with key government stakeholders has expanded and deepened. Units within External Affairs have won numerous national and international awards during his tenure.",
+    "Referring to Northeastern as a “knowledge brand,” Armini has placed particular emphasis on promoting the university’s research enterprise and the thought leadership of its faculty. Armini also plays a central role in crisis management and serves as an advisor to the president on a range of internal and external issues."
+   ],
+   "tel": "617.373.3116",
+   "email": "m.armini@northeastern.edu",
+   "slug": "michael-armini",
+   "fullbio": [
+    "As Senior Vice President for External Affairs, Michael Armini leads Northeastern’s central marketing and communications teams, as well as city, state, and federal government relations. Under his leadership, third-party assessments of the university’s brand have increased dramatically, and the university’s engagement with key government stakeholders has expanded and deepened. Units within External Affairs have won numerous national and international awards during his tenure.",
+    "Referring to Northeastern as a “knowledge brand,” Armini has placed particular emphasis on promoting the university’s research enterprise and the thought leadership of its faculty. Armini also plays a central role in crisis management and serves as an advisor to the president on a range of internal and external issues.",
+    "Prior to joining Northeastern in October 2008, Armini spent 10 years in senior positions at Harvard University, most notably as associate dean for communications at Harvard Law School. In that role, he worked closely with then-dean Elena Kagan, now an associate justice of the Supreme Court.",
+    "He began his career in the political arena, serving as the chief spokesperson for elected officials and candidates on Capitol Hill and Beacon Hill. He is a veteran of five political campaigns, including those for U.S. Congress and governor of Massachusetts. He also worked as a corporate communications specialist for a Boston-based public relations firm.",
+    "Armini has lectured on brand strategy and public affairs at several universities, and at conferences around the U.S. He holds a bachelor’s degree in political science from the University of Massachusetts and a master’s degree in communications from Emerson College.",
+    "He is married to Massachusetts State Representative Jenny Armini. The couple has two grown children."
+   ],
+   "img": [
+    "https://externalaffairs.northeastern.edu/wp-content/uploads/Armini-450-x-450.jpeg"
+   ],
+   "photo": "team/Armini-450-x-450.jpeg"
+  },
+  {
+   "name": "Jack Cline",
+   "title": "Vice President for Federal Relations",
+   "bio": [
+    "Jack Cline is the Vice President for Federal Relations at Northeastern. As the university’s chief lobbyist in Washington, D.C., he engages with members of Congress, federal agencies, the White House, and higher education advocacy groups to advance Northeastern’s interests in teaching and research."
+   ],
+   "tel": "202.539.4089",
+   "email": "j.cline@northeastern.edu",
+   "slug": "jack-cline",
+   "fullbio": [
+    "Jack Cline is the Vice President for Federal Relations at Northeastern. As the university’s chief lobbyist in Washington, D.C., he engages with members of Congress, federal agencies, the White House, and higher education advocacy groups to advance Northeastern’s interests in teaching and research.",
+    "Cline also works with colleagues across Northeastern’s campuses to lobby for research funding, shape public policy, and raise the university’s visibility among key government stakeholders.",
+    "Before coming to Northeastern, Cline was at the University of Kansas as Associate Vice Chancellor for Federal Relations and a member of the Chancellor’s cabinet. During his time there, he was invited by the U.S. Department of State to represent public higher education on official visits to Northern Ireland. Prior to that, he served as Assistant Vice President for Federal Relations for the University of Massachusetts system, and as a member of former Governor Mitt Romney’s senior staff.",
+    "Cline has held leadership roles with the Association of American Universities, the Association of Public and Land-grant Universities and the Association of American Cancer Institutes. He is also a past President of The Science Coalition, a nonpartisan organization of leading U.S. public and private research universities.",
+    "A former Marine, Cline served in the White House Military Office and received his commission in the United States Navy Reserve. He graduated from Harvard University and lives with his family in the Washington, D.C. area. He is based at Northeastern’s Capitol Hill office."
+   ],
+   "img": [
+    "https://externalaffairs.northeastern.edu/wp-content/uploads/cline.jpg"
+   ],
+   "photo": "team/cline.jpg"
+  },
+  {
+   "name": "Michael Ferrari",
+   "title": "Associate Vice President for External Affairs",
+   "bio": [
+    "Mike Ferrari works primarily at the intersection of government relations and communications. He leads the External Affairs division’s higher education survey research series, plays a central role in the university’s Cuba initiative, and works on a range of strategic communications, public policy, and public affairs initiatives."
+   ],
+   "tel": "617.373.7180",
+   "email": "m.ferrari@northeastern.edu",
+   "slug": "michael-ferrari",
+   "fullbio": [
+    "Mike Ferrari works primarily at the intersection of government relations and communications. He leads the External Affairs division’s higher education survey research series, plays a central role in the university’s Cuba initiative, and works on a range of strategic communications, public policy, and public affairs initiatives.",
+    "Prior to joining Northeastern in 2011, Ferrari spent a decade as a senior advisor to state and federal legislators. He served as senior counsel to two members of Congress and as chief of staff and communications director in the Massachusetts Senate. He worked on several state and congressional political campaigns and spent two years with the Peace Corps in Guatemala.",
+    "Ferrari received a Bachelor of Arts with honors in political science from Bates College. He holds a juris doctor from Suffolk University Law School and is admitted to practice law in Massachusetts."
+   ],
+   "img": [
+    "https://externalaffairs.northeastern.edu/wp-content/uploads/Ferrair_Michael.jpg"
+   ],
+   "photo": "team/Ferrair_Michael.jpg"
+  },
+  {
+   "name": "Renata Nyul",
+   "title": "Vice President for Communications",
+   "bio": [
+    "Renata Nyul is the vice president for communications at Northeastern University, where she oversees the Office of Communications within External Affairs. Nyul leads the development and implementation of strategic internal and external communications efforts to position the institution as an innovation leader in higher education."
+   ],
+   "tel": "617.373.7424",
+   "email": "r.nyul@northeastern.edu",
+   "slug": "renata-nyul",
+   "fullbio": [
+    "Renata Nyul is the vice president for communications at Northeastern University, where she oversees the Office of Communications within External Affairs. Nyul leads the development and implementation of strategic internal and external communications efforts to position the institution as an innovation leader in higher education.",
+    "She leads strategic media relations efforts to position Northeastern in the national and global press. Her team of media relations professionals, journalists, digital storytellers, and social media specialists engage with various audiences in innovative and interactive ways across multiple platforms.",
+    "She has led the development of Northeastern Global News (NGN), the primary resource for news and information about the university. NGN covers the university, and the world, by providing commentary and analysis on timely topics of national and global importance.",
+    "Prior to joining Northeastern in 2005, Nyul spent several years at a boutique public relations firm representing tech companies."
+   ],
+   "img": [
+    "https://externalaffairs.northeastern.edu/wp-content/uploads/nyul.jpg"
+   ],
+   "photo": "team/nyul.jpg"
+  },
+  {
+   "name": "John Tobin",
+   "title": "Vice President, City & Community Engagement",
+   "bio": [
+    "John Tobin is the Vice President of City and Community Engagement (CCE) and has served in this role since 2010. John and his colleagues in CCE interface daily with a broad group of stakeholders."
+   ],
+   "tel": "617.373.3168",
+   "email": "j.tobin@northeastern.edu",
+   "slug": "john-tobin",
+   "fullbio": [
+    "John Tobin is the Vice President of City and Community Engagement (CCE) and has served in this role since 2010. John and his colleagues in CCE interface daily with a broad group of stakeholders. These include the Mayor’s Office and all city departments, local elected officials, neighborhood and merchants associations, nonprofit and community organizations, as well as Northeastern students, faculty, and staff to advance the university’s Institutional Master Plan. John also works with officials and residents surrounding our Dedham, Nahant, Burlington, and Brookline locations. Before coming to Northeastern, John was elected five times as a member of the Boston City Council."
+   ],
+   "img": [
+    "https://externalaffairs.northeastern.edu/wp-content/uploads/Tobin_600x600.jpg"
+   ],
+   "photo": "team/Tobin_600x600.jpg"
+  }
+ ]
+}
