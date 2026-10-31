@@ -30,12 +30,10 @@ def i(name):
 
 
 NAV = [("Our expertise", "expertise/"), ("Team", "our-team/"), ("For media", "contact/#media"),
-       ("Resources", [("Brand governance", "https://brand.northeastern.edu/"),
-                      ("Brand and media policies", "https://brand.northeastern.edu/policies/"),
+       ("Resources", [("Media policies", "https://brand.northeastern.edu/policies/"),
                       ("Media inquiries", "https://news.northeastern.edu/media-inquiries/"),
                       ("Northeastern Global News", "https://news.northeastern.edu/"),
-                      ("Service opportunities", "https://csce.sites.northeastern.edu/how-to-find-the-programs-for-you/"),
-                      ("Student ambassadors", "https://brand.northeastern.edu/student-ambassadors/")]),
+                      ("Service opportunities", "https://csce.sites.northeastern.edu/how-to-find-the-programs-for-you/")]),
        ("Contact us", "contact/")]
 
 
@@ -105,37 +103,41 @@ def contact_items(l, phone_label="Phone", lg=False):
     if l.get("tel"):
         out += f'<div class="{cls}">{i("phone")}<span class="nu-contact-item__label">{phone_label}</span><span class="nu-contact-item__value"><a class="nu-link" href="{tel(l["tel"])}">{l["tel"]}</a></span></div>'
     if l.get("email"):
-        out += f'<div class="{cls}">{i("mail")}<span class="nu-contact-item__label">Email</span><span class="nu-contact-item__value"><a class="nu-link" href="mailto:{l["email"]}">{l["email"]}</a></span></div>'
+        shown = l["email"].replace("@", "@<wbr>") if lg else l["email"]
+        out += f'<div class="{cls}">{i("mail")}<span class="nu-contact-item__label">Email</span><span class="nu-contact-item__value"><a class="nu-link" href="mailto:{l["email"]}">{shown}</a></span></div>'
     return out
 
 
 LEADERS = {l["name"]: l for l in C["leaders"]}
 MEDIA = next(d for d in C["contact"]["depts"] if d["id"] == "comms")
 
-# Proof for the home page's claim (ea-01). The award and the article are the two the live Highlights link to; the award level and
-# the headline are the sources' own words (CASE's award page; the Times article's headline, March 13, 2020).
-PROOF = [
-    {"source": "CASE Circle of Excellence", "claim": "Grand Gold: COVID-19 response marketing campaign, Protect the Pack",
-     "meta": "2021 · Council for Advancement and Support of Education", "date": "2021", "url": C["home"]["highlights"][0]["url"]},
-    {"source": "The New York Times", "claim": "“Mapping the Social Network of Coronavirus”, with Northeastern’s Alessandro Vespignani",
-     "meta": "March 13, 2020", "date": "2020-03-13", "url": C["home"]["highlights"][1]["url"]},
-]
+def surname(n):
+    return n.replace(", PhD", "").replace(" Jr.", "").split()[-1]
 
-# Offices by job title (ea-02). The live roster has no office field, so the grouping is read from the 54 titles; leaders lead each group.
-GROUPS = [
-    ("Office of the senior vice president", ["Michael Armini", "Michael Ferrari", "Caitlin O'Donnell", "Diane Hubbard", "Anna Huang", "Natalie Matthews"]),
+
+# Offices by area of expertise (ea-02, regrouped on review): the three on Our expertise plus the SVP's office; alphabetical by surname.
+# The live roster has no office field, so the grouping is read from the titles.
+GROUPS = [(g, sorted(names, key=surname)) for g, names in [
+    ("Office of the senior vice president", ["Michael Armini", "Caitlin O'Donnell", "Diane Hubbard", "Anna Huang", "Natalie Matthews"]),
     ("City and community engagement", ["John Tobin", "Chimel Idiokitas", "David Isberg", "Elizabeth Enright", "Joseph Regan, PhD", "Monée Vance", "Jorge Dias"]),
-    ("Media relations", ["Renata Nyul", "Ed Gavaghan", "Belle Brody", "Maedot Kassa", "Jackie Loring", "Rachel Gouhin"]),
-    ("Northeastern Global News", ["Ann M. Simmons", "Efrain Hernandez Jr.", "Tanner Stening", "Katya Poltorak", "Cesareo Contreras", "Cynthia Hibbert",
-                                  "Rich McKay", "Hannah Morse", "Cyrus Moulton", "Peter Rubinstein"]),
-    ("Photo, video and social", ["Matthew Modoono", "Alyssa Stone", "Francis Oywech", "Neely Coe", "Glenn Pike", "Cameron Sleeper", "Taijai Slaughter",
-                                 "Brandon Silva", "Rachel Vogel", "Victoria Partika", "Jay Whitehead"]),
-    ("Digital", ["Stephanie Sim", "Elizabeth Bolaji", "Xristopher Anderton", "Alex Zelenchuck", "Court Smith", "Marin Carroll", "Thara Messeroux", "Zach Christensen"]),
-    ("Brand studio", ["Denis Skarep", "Renee Zhang"]),
-    ("Government relations", ["Jack Cline", "Jesse Poon", "Abigail Robbins", "Maddy Brogan"]),
-]
+    ("Communications", ["Renata Nyul", "Ed Gavaghan", "Belle Brody", "Maedot Kassa", "Jackie Loring", "Rachel Gouhin",
+                        "Ann M. Simmons", "Efrain Hernandez Jr.", "Tanner Stening", "Katya Poltorak", "Cesareo Contreras", "Cynthia Hibbert",
+                        "Rich McKay", "Hannah Morse", "Cyrus Moulton", "Peter Rubinstein",
+                        "Matthew Modoono", "Alyssa Stone", "Neely Coe", "Glenn Pike", "Cameron Sleeper", "Taijai Slaughter", "Rachel Vogel", "Victoria Partika", "Jay Whitehead",
+                        "Stephanie Sim", "Elizabeth Bolaji", "Xristopher Anderton", "Alex Zelenchuck", "Court Smith", "Marin Carroll", "Thara Messeroux", "Zach Christensen",
+                        "Denis Skarep", "Renee Zhang"]),
+    ("Government relations", ["Jack Cline", "Michael Ferrari", "Jesse Poon", "Abigail Robbins", "Maddy Brogan"]),
+]]
 TEAM = {n: (t, f) for n, t, f in C["team"]}
 assert sorted(sum((g for _, g in GROUPS), [])) == sorted(TEAM), set(TEAM) ^ set(sum((g for _, g in GROUPS), []))
+GROUP_OF = {n: g for g, names in GROUPS for n in names}
+
+
+def team_link(name, base, cls="nu-arrow-link"):
+    """Leaders point to their office on the team page in place of personal phone and email."""
+    g = GROUP_OF[name]
+    label = g if g.startswith("Office") else g + " team"
+    return f'<a class="{cls}" href="{base}#team-{slug(g)}">{label} {i("arrow")}</a>'
 
 
 def person_href(name, base):
@@ -146,18 +148,39 @@ def person_href(name, base):
 # Each office's lead and what it handles (ea-03). Lists are the office's own copy broken into its parts.
 OFFICES = {
     "city-and-community-engagement": {"lead": "John Tobin", "handles": ["Partnerships with Boston neighborhoods", "Community events", "Volunteer opportunities", "Off-campus student liaison"]},
-    "communications": {"lead": "Renata Nyul", "handles": ["Media inquiries", "Public relations", "Northeastern Global News", "Brand and media policies"]},
+    "communications": {"lead": "Renata Nyul", "handles": ["Media inquiries", "Public relations", "Northeastern Global News", "Media policies"]},
     "government-relations": {"lead": "Jack Cline", "handles": ["Federal research funding", "Faculty expertise for Congress and funding agencies", "Global research partnerships", "Liaison on policy issues"]},
 }
+
+
+NGN_MARK = (ROOT / "build/ngn-wordmark.svg").read_text().strip()
+
+
+def reel(sid, hid, head, noun, label, stories, mod=""):
+    """Carousel ("st-reel", site.js): a scroll-snap row of stories with previous/next. A story without a photo shows its outlet as type."""
+    items = ""
+    for n, d in enumerate(stories, 1):
+        media = (f'<span class="st-proof-media">{img(d["img"])}</span>\n      <span class="st-reel__kind">{d["kind"]}</span>' if d.get("img")
+                 else f'<span class="st-proof-media st-proof-media--type"><span>{d["kind"]}</span></span>')
+        items += f'''<li class="st-reel__item" aria-roledescription="slide" aria-label="{n} of {len(stories)}"><a class="nu-proof-point st-story" href="{d["url"]}" target="_blank" rel="noopener">
+      {media}
+      <span class="nu-heading nu-heading--h4 st-story__title">{d["title"]}</span>
+      <span class="nu-text nu-text--meta nu-proof-point__meta"><span>{d["by"]}</span>{i("external")}</span>
+      <span class="u-vh"> (opens in a new tab)</span></a></li>'''
+    btn = '<button class="nu-icon-button nu-icon-button--outline" type="button" data-reel-{} aria-label="{} {}">{}</button>'
+    return f'''<section class="st-band st-reel{mod}" id="{sid}" aria-labelledby="{hid}" aria-roledescription="carousel">
+  <div class="st-reel__head">{head}<div class="st-reel__controls">{btn.format("prev", "Previous", noun, i("arrow-left"))}{btn.format("next", "Next", noun, i("arrow"))}</div></div>
+  <ul class="st-reel__track" tabindex="0" aria-label="{label}">{items}</ul>
+</section>'''
 
 
 # ---------- pages ----------
 def home():
     h = C["home"]
-    # ea-05: the unit's name is the H1 and the mission sentence the lead; the crop puts the lettering right of the copy (EASTERN, as on the live crop).
+    # ea-05: the unit's name is the H1 and the mission sentence the lead. Hero is the 2026 Fenway convocation (Northeastern Global News); the stadium sits right of the copy.
     top = f'''<section class="nu-hero-page nu-hero-page--display st-hero" data-mode="dark">
-  <div class="nu-hero-page__media" style="--hero-page-focus:100% 50%;--hero-page-focus-phone:88% 50%">
-    <img class="nu-image nu-image--fill" src="{{{{base}}}}assets/img/Hero-Steps.jpg" alt="">
+  <div class="nu-hero-page__media" style="--hero-page-focus:70% 55%;--hero-page-focus-phone:62% 55%">
+    <img class="nu-image nu-image--fill" src="{{{{base}}}}assets/img/Fenway-Convocation.jpg" alt="">
     <span class="nu-scrim nu-scrim--left"></span><span class="nu-scrim nu-scrim--scene"></span><span class="nu-scrim nu-scrim--grain"></span><span class="nu-scrim nu-scrim--full nu-hero-page__phone-scrim"></span>
   </div>
   <div class="nu-hero-page__copy">
@@ -166,41 +189,29 @@ def home():
     <a class="nu-button" href="expertise/">Our expertise {i("arrow")}</a>
   </div>
 </section>'''
-    proof = "".join(f'''<li><a class="nu-proof-point" href="{p["url"]}" target="_blank" rel="noopener">
-      <span class="nu-heading nu-heading--h3 nu-proof-point__source">{p["source"]}</span>
-      <span class="nu-text nu-proof-point__claim">{p["claim"]}</span>
-      <span class="nu-text nu-text--meta nu-proof-point__meta"><span><time datetime="{p["date"]}">{p["meta"].split(" · ")[0]}</time>{(" · " + p["meta"].split(" · ")[1]) if " · " in p["meta"] else ""}</span>{i("external")}</span>
-      <span class="u-vh"> (opens in a new tab)</span></a></li>''' for p in PROOF)
-    rows = "".join(f'''<article class="nu-link-row">
-  <h3 class="nu-heading nu-heading--h3 nu-link-row__title"><a class="nu-link-row__link" href="expertise/#{x["id"]}">{x["name"]}</a></h3>
-  <div class="nu-link-row__body"><p class="nu-text">{x["summary"]}</p>
-    <span class="nu-arrow-link nu-arrow-link--sm nu-link-row__cue" aria-hidden="true">More on {x["short"]} {i("arrow")}</span></div>
-</article>''' for x in C["expertise"]["areas"])
+    cards = "".join(f'''<li><a class="st-office-card" href="expertise/#{x["id"]}">
+    <span class="st-office-card__media"><img class="nu-image" src="{{{{base}}}}assets/img/{x["img"]}" alt="" loading="lazy"></span>
+    <h3 class="nu-heading nu-heading--h3">{x["name"]}</h3>
+    <p class="nu-text">{x["card"]}</p>
+    <span class="nu-arrow-link nu-arrow-link--sm st-office-card__cue" aria-hidden="true">More on {x["short"]} {i("arrow")}</span></a></li>''' for x in C["expertise"]["areas"])
     faces = "".join(f'''<li><a class="nu-portrait-wall__face" href="{person_href(n, "")}"><img class="nu-image nu-image--1x1" src="{{{{base}}}}assets/img/team/{f}" alt="" loading="lazy"><span class="nu-portrait-wall__name">{n}<span class="u-vh">, {t}</span></span></a></li>'''
                     for n, t, f in C["team"])
     main = f'''<section class="st-band st-band--tight ea-media" id="media" aria-labelledby="ea-media-h">
 <div class="nu-contact-block">
-  <div class="nu-contact-block__label"><h2 class="nu-heading nu-heading--h3" id="ea-media-h">For media</h2><p class="nu-text nu-text--small">{MEDIA["desc"]}</p></div>
-  <div class="nu-contact-block__body"><div class="nu-contact-block__items">{contact_items(MEDIA, lg=True)}</div>
-    <a class="nu-arrow-link nu-arrow-link--external" href="https://news.northeastern.edu/media-inquiries/">Media inquiries and experts {i("external")}</a></div>
+  <div class="nu-contact-block__label"><h2 class="nu-heading nu-heading--h2" id="ea-media-h">For media</h2><p class="nu-text nu-text--small">{MEDIA["desc"]}</p><a class="nu-arrow-link nu-arrow-link--external" href="https://news.northeastern.edu/media-inquiries/">Media inquiries and experts {i("external")}</a></div>
+  <div class="nu-contact-block__body"><div class="nu-contact-block__items">{contact_items(MEDIA, lg=True)}</div></div>
 </div>
 </section>
-<section class="st-band" aria-labelledby="ea-proof-h">
-<div class="nu-proof-point-row nu-proof-point-row--split">
-  <div class="nu-proof-point-row__head">
-    <h2 class="nu-heading nu-heading--h2" id="ea-proof-h">Our work, recognized</h2>
-    <a class="nu-arrow-link nu-arrow-link--external" href="https://news.northeastern.edu/">Northeastern Global News {i("external")}</a>
-  </div>
-  <ul class="nu-proof-point-row__list">{proof}</ul>
-</div>
-</section>
+{reel("in-the-news", "ea-press-h", '<h2 class="nu-heading nu-heading--h2" id="ea-press-h">In the news</h2>', "press story", "Press coverage", h["press"])}
+{reel("ngn", "ea-ngn-h", f'<h2 class="st-reel__brand" id="ea-ngn-h"><a class="st-ngn-link" href="https://news.northeastern.edu/"><span class="u-vh">Northeastern Global News</span>{NGN_MARK}</a></h2>',
+      "NGN story", "Northeastern Global News: university stories", h["ngn"], " st-reel--ngn")}
 <section class="st-band st-band--sunken" aria-labelledby="st-what">
   <header class="nu-section-header nu-section-header--split">
     <h2 class="nu-heading nu-heading--h2" id="st-what">What we do</h2>
     <div class="nu-section-header__body"><p class="nu-text nu-text--lead">Our approach is collaborative and strategic, with the goal of positioning Northeastern as the world leader in experiential learning and an engine for global impact.</p>
       <a class="nu-arrow-link" href="expertise/">Our expertise {i("arrow")}</a></div>
   </header>
-  <div class="st-rows">{rows}</div>
+  <ul class="st-office-cards">{cards}</ul>
 </section>
 <section class="nu-portrait-wall" aria-labelledby="ea-about">
   <div class="nu-portrait-wall__head">
@@ -227,7 +238,6 @@ def expertise():
     blocks = ""
     for n, a in enumerate(x["areas"]):
         o = OFFICES[a["id"]]
-        L = LEADERS[o["lead"]]
         last = n == len(x["areas"]) - 1
         link = a["link"]
         ext = link[1].startswith("http")
@@ -238,11 +248,7 @@ def expertise():
         blocks += f'''<article class="nu-office-profile" id="{a["id"]}" aria-labelledby="{a["id"]}-h">
   <div class="nu-office-profile__head">
     <h2 class="nu-heading nu-heading--h2" id="{a["id"]}-h">{a["name"]}</h2>
-    <div class="nu-office-profile__lead">
-      {img(L["photo"], "", "1x1")}
-      <div class="nu-office-profile__who"><h3 class="nu-heading nu-heading--h5"><a class="nu-link" href="../our-team/leadership/bio/{L["slug"]}/">{L["name"]}</a></h3><p class="nu-text nu-text--small">{L["title"]}</p></div>
-      <div class="nu-office-profile__reach">{inline_contact(L["tel"], L["email"])}</div>
-    </div>
+    <a class="nu-arrow-link st-office-team" href="../our-team/#team-{a["id"]}">Meet the {" ".join(w if w == "and" else w.capitalize() for w in a["name"].split())} team {i("arrow")}</a>
   </div>
   <div class="nu-office-profile__body">
     {"".join(f'<p class="nu-text nu-text--lead">{p}</p>' for p in a["body"])}
@@ -285,7 +291,7 @@ def policy():
       </div>
     </li>'''
     gr = next(d for d in C["contact"]["depts"] if d["id"] == "gr")
-    team = [(n, TEAM[n][0]) for n in dict(GROUPS)["Government relations"]]
+    team = [(n, TEAM[n][0]) for n in ["Jack Cline", "Jesse Poon", "Abigail Robbins", "Maddy Brogan"]]  # the federal and state relations staff, not the whole office
     rows = "".join(f'''<li><article class="nu-person-card nu-person-card--compact">
   <span class="nu-person-card__media">{img("team/" + TEAM[n][1], "", "1x1")}</span>
   <div class="nu-person-card__body"><h3 class="nu-heading nu-heading--h5">{f'<a class="nu-person-card__link" href="{person_href(n, "../")}">{n}</a>' if n in LEADERS else n}</h3><p class="nu-text nu-text--small nu-person-card__title">{t}</p></div>
@@ -331,10 +337,10 @@ def team():
   <div class="nu-person-card__body"><h4 class="nu-heading nu-heading--h5">{name}</h4><p class="nu-text nu-text--small nu-person-card__title">{t}</p></div>
 </article></li>'''
         groups += f'''<section class="nu-card-grid__group" aria-labelledby="{gid}">
-    <div class="nu-card-grid__group-head"><h3 class="nu-heading nu-heading--h3" id="{gid}">{g}</h3><p class="nu-text nu-text--meta">{len(names)} people</p></div>
+    <div class="nu-card-grid__group-head"><h3 class="nu-heading nu-heading--h3" id="{gid}">{g}</h3></div>
     <ul class="nu-card-grid__items" role="list">{cards}</ul>
   </section>'''
-    body = hero_title("Our team", "The people who tell Northeastern’s story: media and public relations, government affairs, city and community engagement, and marketing.", [(UNIT, "../")]) + team_tabs("Team", "../") + f'''<section class="st-band st-band--first ea-team" aria-label="Our team by office">
+    body = hero_title("Our team", "The people who tell Northeastern’s story: media and public relations, government affairs, and city and community engagement.", [(UNIT, "../")]) + team_tabs("Team", "../") + f'''<section class="st-band st-band--first ea-team" aria-label="Our team by office">
 <div class="nu-card-grid nu-card-grid--grouped">{groups}</div>
 </section>'''
     page("our-team", "Our team", "Meet the External Affairs team at Northeastern University.", body, "our-team/")
@@ -358,11 +364,10 @@ def leadership():
   <div class="nu-featured-person__body">
     <div class="nu-featured-person__name"><h2 class="nu-heading nu-heading--h2" id="ld-{l["slug"]}"><a href="bio/{l["slug"]}/">{l["name"]}</a></h2><p class="nu-text nu-text--small nu-featured-person__title">{l["title"]}</p></div>
     <div class="nu-featured-person__about"><p class="nu-text">{l["fullbio"][0]}</p>
-      <div class="st-contact-inline">{contact_items(l)}</div>
-      <div class="nu-featured-person__actions"><a class="nu-arrow-link" href="bio/{l["slug"]}/">Full bio<span class="u-vh">, {l["name"]}</span>{i("arrow")}</a></div></div>
+      <div class="nu-featured-person__actions"><a class="nu-arrow-link" href="bio/{l["slug"]}/">Full bio<span class="u-vh">, {l["name"]}</span>{i("arrow")}</a>{team_link(l["name"], "../")}</div></div>
   </div>
 </article>''' for l in rest)
-    body = f'''{hero_title("Leadership", "The leaders of Northeastern’s central marketing, communications, and city, state and federal government relations teams.", [(UNIT, "../../"), ("Our team", "../")])}
+    body = f'''{hero_title("Leadership", "The leaders of Northeastern’s communications, city and community engagement, and government relations teams.", [(UNIT, "../../"), ("Our team", "../")])}
 {team_tabs("Leadership", "../../")}
 <div class="nu-leadership ea-leaders">{feat}<div class="nu-leadership__rows">{rows}</div></div>'''
     page("our-team/leadership", "Leadership", "Leadership of External Affairs at Northeastern University.", body, "our-team/")
@@ -382,7 +387,7 @@ def bios():
       <a class="nu-arrow-link nu-arrow-link--back nu-arrow-link--sm" href="../../">{i("arrow-left")}Leadership</a>
       <h1 class="nu-heading nu-heading--h1">{l["name"]}</h1>
       <p class="nu-text nu-text--lead nu-profile-header__role">{l["title"]}</p>
-      <div class="nu-profile-header__contact nu-profile-header__contact--inline">{inline_contact(l.get("tel"), l.get("email"))}</div>
+      {team_link(l["name"], "../../../")}
     </div>
   </div>
 </header>
@@ -413,11 +418,10 @@ def contact():
   <div class="nu-contact-block__body"><div class="nu-contact-block__items">{items}</div>{extra}</div>
 </section>'''
     lead = c["lead"].split(". ")[-1]
-    fig = img("contact_collage_m.png", "", "natural")
-    body = hero_title("Contact us", lead, [(UNIT, "../")], figure=fig, focus="50% 0%") + f'''<section class="st-band st-contact">
+    body = hero_title("Contact us", lead, [(UNIT, "../")]) + f'''<section class="st-band st-contact">
   <div class="st-contact__blocks">{blocks}</div>
 </section>'''
-    page("contact", "Contact us", c["lead"], body, "contact/")
+    page("contact", "Contact us", "Contact External Affairs at Northeastern University: communications and media relations, city and community engagement, and government relations.", body, "contact/")
 
 
 def not_found():

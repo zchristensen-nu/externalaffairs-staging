@@ -1,30 +1,93 @@
 {
  "home": {
   "h1": "We advance the strategic interests of the university by promoting its ideas, people, and unique strengths.",
-  "about": "We serve as the university’s hub for media and public relations, government affairs, city and community engagement, and marketing.",
-  "highlights": [
+  "about": "We serve as the university’s hub for media and public relations, government affairs, and city and community engagement.",
+  "press": [
    {
-    "title": "An award-winning campaign",
-    "source": "Protect the Pack",
-    "img": "Campaign_Thmb.jpg",
-    "url": "https://www.case.org/awards/circle-excellence/2021/covid-19-response-marketing-campaign-protect-pack"
-   },
-   {
-    "title": "Placing our experts in premier media outlets",
-    "source": "The New York Times",
+    "url": "https://www.washingtonpost.com/health/2026/10/29/ebola-congo-10000-cases-forecast/dde4703e-d39f-11f1-9931-2a41b76fc976_story.html",
     "img": "neu_m0475g87m_Vespignani.jpeg",
-    "url": "https://www.nytimes.com/2020/03/13/science/coronavirus-social-networks-data.html"
+    "kind": "The Washington Post",
+    "title": "Experts warn of wider spread as Ebola outbreak reaches plateau",
+    "by": "Alessandro Vespignani, network scientist"
    },
    {
-    "title": "All the latest throughout Northeastern",
-    "source": "Northeastern Global News",
-    "img": "Screen-Shot-2023-01-13-at-4.12.25-PM.jpg",
-    "url": "https://news.northeastern.edu/"
+    "url": "https://www.washingtonpost.com/business/2025/05/16/honey-coupons-paypal-creators-controversy/",
+    "kind": "The Washington Post",
+    "title": "Honey says it finds online deals. Creators say it swipes their income.",
+    "by": "Alexandra Roberts, law and media"
+   },
+   {
+    "url": "https://www.bloomberg.com/news/articles/2024-04-20/dubai-floods-expose-weakness-to-climate-change-after-uae-heavy-rains",
+    "kind": "Bloomberg",
+    "title": "Dubai floods expose weaknesses to a rapidly changing climate",
+    "by": "Auroop Ganguly, civil and environmental engineering"
+   },
+   {
+    "url": "https://www.bostonmagazine.com/boston-power-list-2024/",
+    "kind": "Boston Magazine",
+    "title": "The 150 most influential Bostonians of 2024",
+    "by": "President Joseph E. Aoun"
+   },
+   {
+    "url": "https://www.theguardian.com/books/2023/nov/07/stories-poems-louisa-may-alcott-little-women-author-eh-gould",
+    "kind": "The Guardian",
+    "title": "Researcher uncovers a new body of work believed to be by Louisa May Alcott",
+    "by": "Max Chapnick, English"
+   },
+   {
+    "url": "https://www.scientificamerican.com/article/mystery-portrait-is-likely-raphael-masterpiece-according-to-artificial-intelligence/",
+    "kind": "Scientific American",
+    "title": "Mystery portrait may be a Raphael, artificial intelligence suggests",
+    "by": "Cammy Brothers, art history"
+   }
+  ],
+  "ngn": [
+   {
+    "url": "https://news.northeastern.edu/2026/10/07/northeastern-enrollment-financial-aid-2026-27/",
+    "img": "ngn/aid.jpg",
+    "kind": "Boston",
+    "title": "Northeastern invests a record $525m in financial aid, welcomes talented class to multiple campuses",
+    "by": "By Cyrus Moulton"
+   },
+   {
+    "url": "https://news.northeastern.edu/2026/09/30/harvard-business-school-case-study/",
+    "img": "ngn/hbs-case.jpg",
+    "kind": "Boston",
+    "title": "Harvard Business School takes up Northeastern’s case for higher education",
+    "by": "By Cyrus Moulton"
+   },
+   {
+    "url": "https://news.northeastern.edu/2026/09/25/president-aoun-faculty-senate-2026/",
+    "img": "ngn/aoun-senate.jpg",
+    "kind": "Boston",
+    "title": "Aoun says university is ‘well positioned’ amid challenges facing higher education, but must continue to innovate",
+    "by": "By Cyrus Moulton"
+   },
+   {
+    "url": "https://news.northeastern.edu/2026/09/23/ai-makerspace-boston-campus/",
+    "img": "ngn/makerspace.jpg",
+    "kind": "Boston",
+    "title": "Query, create or be curious at new AI Makerspace in Boston",
+    "by": "By Hannah Morse"
+   },
+   {
+    "url": "https://news.northeastern.edu/2026/09/08/northeastern-nyc-inaugural-class-convocation/",
+    "img": "ngn/nyc-convocation.jpg",
+    "kind": "New York City",
+    "title": "Northeastern NYC welcomes inaugural class at first full Convocation",
+    "by": "By Tanner Stening"
+   },
+   {
+    "url": "https://news.northeastern.edu/2026/09/03/new-oakland-students-move-in-2026/",
+    "img": "ngn/oakland-cohort.jpg",
+    "kind": "Oakland",
+    "title": "Oakland campus abuzz with energy as largest-ever cohort arrives",
+    "by": "By Peter Rubinstein"
    }
   ]
  },
  "expertise": {
-  "lead": "Our talented team brings a range of skills and experience to the table in setting the agenda and standards for elevating the university’s reputation and brand. Our approach is collaborative and strategic with the goal of positioning Northeastern as the world leader in experiential learning and an engine for global impact.",
+  "lead": "We connect Northeastern with the press, with our neighbors in Boston, and with policymakers at every level of government. Our approach is collaborative and strategic with the goal of positioning Northeastern as the world leader in experiential learning and an engine for global impact.",
   "areas": [
    {
     "id": "city-and-community-engagement",
@@ -39,7 +102,8 @@
     "link": [
      "Office of City and Community Engagement",
      "https://communityengagement.northeastern.edu/"
-    ]
+    ],
+    "card": "The bridge between Northeastern and the communities around its Boston campus."
    },
    {
     "id": "communications",
@@ -54,13 +118,14 @@
     "link": [
      "Northeastern Global News",
      "https://news.northeastern.edu/"
-    ]
+    ],
+    "card": "Media inquiries and public relations, and the newsroom behind Northeastern Global News."
    },
    {
     "id": "government-relations",
     "name": "Government relations",
     "short": "government relations",
-    "img": "101623_AS_EXP_Grand_Opening_167.jpeg",
+    "img": "policy-on-the-plaza.jpg",
     "alt": "A speaker at the podium in front of the Northeastern seal",
     "summary": "We focus on advancing the university’s research agenda and on shaping policy that affects our students, faculty, and staff.",
     "body": [
@@ -69,7 +134,8 @@
     "link": [
      "Public policy briefs",
      "public-policies/"
-    ]
+    ],
+    "card": "Advancing the university’s research agenda and shaping policy that affects our students, faculty and staff."
    }
   ]
  },
@@ -117,13 +183,6 @@
     "desc": "For inquiries regarding media, public relations, news, and policies.",
     "tel": "617.373.5471",
     "email": "media@northeastern.edu"
-   },
-   {
-    "id": "marketing",
-    "name": "Marketing",
-    "desc": "For inquiries regarding brand experience, guidelines, and campaigns.",
-    "tel": "617.373.2151",
-    "email": "marketing@northeastern.edu"
    },
    {
     "id": "gr",
@@ -291,11 +350,6 @@
    "odonnell.jpg"
   ],
   [
-   "Francis Oywech",
-   "Associate Director, Media Operations",
-   "Francis_Oywech_600x600.jpg"
-  ],
-  [
    "Victoria Partika",
    "Social Media Specialist, Oakland Campus",
    "victoria-partika.jpg"
@@ -329,11 +383,6 @@
    "Peter Rubinstein",
    "News Reporter, Oakland Campus",
    "Peter_Rubinstein_005-1.jpg"
-  ],
-  [
-   "Brandon Silva",
-   "Media Systems Specialist",
-   "brandon-silva.jpg"
   ],
   [
    "Stephanie Sim",
@@ -418,7 +467,7 @@
    "email": "m.armini@northeastern.edu",
    "slug": "michael-armini",
    "fullbio": [
-    "As Senior Vice President for External Affairs, Michael Armini leads Northeastern’s central marketing and communications teams, as well as city, state, and federal government relations. Under his leadership, third-party assessments of the university’s brand have increased dramatically, and the university’s engagement with key government stakeholders has expanded and deepened. Units within External Affairs have won numerous national and international awards during his tenure.",
+    "As Senior Vice President for External Affairs, Michael Armini leads Northeastern’s central communications team, as well as city, state, and federal government relations. Under his leadership, the university’s engagement with key government stakeholders has expanded and deepened. Units within External Affairs have won numerous national and international awards during his tenure.",
     "Referring to Northeastern as a “knowledge brand,” Armini has placed particular emphasis on promoting the university’s research enterprise and the thought leadership of its faculty. Armini also plays a central role in crisis management and serves as an advisor to the president on a range of internal and external issues.",
     "Prior to joining Northeastern in October 2008, Armini spent 10 years in senior positions at Harvard University, most notably as associate dean for communications at Harvard Law School. In that role, he worked closely with then-dean Elena Kagan, now an associate justice of the Supreme Court.",
     "He began his career in the political arena, serving as the chief spokesperson for elected officials and candidates on Capitol Hill and Beacon Hill. He is a veteran of five political campaigns, including those for U.S. Congress and governor of Massachusetts. He also worked as a corporate communications specialist for a Boston-based public relations firm.",
